@@ -5,18 +5,19 @@ import Header from "./Header";
 
 const Layout = (props) => {
   return (
-    <div>
       <Container>
         <Head>
           <link
             rel="stylesheet"
-            href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
+            href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
           ></link>
         </Head>
         <Header />
         {props.children}
+        <footer style={{backgroundColor: "#DDDEDE", position: "fixed", width: "100%", left: 0, bottom: 0, textAlign: "center"}}>
+          &copy; ZrinCin, 2021.
+        </footer>
       </Container>
-    </div>
   );
 };
 export default Layout;
