@@ -33,8 +33,8 @@ class CampaignIndex extends Component {
             <a>
               <Button
                 floated="right"
-                content="Create Campaign"
-                icon="add circle"
+                content="Create New Campaign"
+                icon="add"
                 primary
               />
             </a>
