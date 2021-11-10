@@ -19,6 +19,7 @@ class CampaignShow extends Component {
       requestsCount: summary[2],
       approversCount: summary[3],
       manager: summary[4],
+      description: summary[5],
     };
   }
 
@@ -27,6 +28,7 @@ class CampaignShow extends Component {
       balance,
       manager,
       minimumContribution,
+      description,
       requestsCount,
       approversCount,
     } = this.props;
@@ -38,6 +40,11 @@ class CampaignShow extends Component {
         description:
           "The manager created this campaign and can create requests to withdraw money",
         style: { overflowWrap: "break-word" },
+      },
+      {
+        header: description,
+        meta: "Description",
+        description: "Details about campaign",
       },
       {
         header: minimumContribution,

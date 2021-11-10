@@ -1,13 +1,13 @@
 //SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.6.0;
-pragma abicoder v2;
+
 
 contract CampaignFactory {
     Campaign[] public deployedCampaigns;
 
-    function createCampaign(uint256 minimum) public {
-        Campaign newCampaign = new Campaign(minimum, msg.sender);
+    function createCampaign(uint256 minimum, string memory description) public {
+        Campaign newCampaign = new Campaign(minimum, description, msg.sender);
         deployedCampaigns.push(newCampaign);
     }
 
@@ -17,6 +17,7 @@ contract CampaignFactory {
 }
 
 contract Campaign {
+    
     struct Request {
         string description;
         uint256 value;
@@ -29,6 +30,7 @@ contract Campaign {
     Request[] public requests;
     address public manager;
     uint256 public minimumContribution;
+    string campaignDescription;
     mapping(address => bool) public approvers;
     uint256 public approversCount;
 
@@ -37,9 +39,10 @@ contract Campaign {
         _;
     }
 
-    constructor(uint256 minimum, address creator) public {
+    constructor(uint256 minimum, string memory _description, address creator) public {
         manager = creator;
         minimumContribution = minimum;
+        campaignDescription = _description;
     }
 
     function contribute() public payable {
@@ -93,7 +96,8 @@ contract Campaign {
             uint256,
             uint256,
             uint256,
-            address
+            address,
+            string memory
         )
     {
         return (
@@ -101,7 +105,8 @@ contract Campaign {
             address(this).balance,
             requests.length,
             approversCount,
-            manager
+            manager,
+            campaignDescription
         );
     }
 
