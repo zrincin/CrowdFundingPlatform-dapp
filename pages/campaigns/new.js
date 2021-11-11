@@ -41,7 +41,7 @@ class CampaignNew extends Component {
             <label>Minimum Contribution</label>
             <Input
               label="wei"
-              labelPosition="right"
+              labelPosition="left"
               value={this.state.minimumContribution}
               onChange={(event) =>
                 this.setState({ minimumContribution: event.target.value })

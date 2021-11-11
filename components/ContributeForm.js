@@ -36,7 +36,7 @@ class ContributeForm extends Component {
       <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
         <Form.Field>
           <label>Amount to Contribute</label>
-          <Input label="ETH" labelPosition="left"
+          <Input
             value={this.state.value}
             onChange={(event) => this.setState({ value: event.target.value })}
             label="ether"
