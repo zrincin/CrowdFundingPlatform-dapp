@@ -25,7 +25,7 @@ const Layout = (props) => {
           overflow: "auto",
         }}
       >
-        &copy; ZrinCin, 2021.
+        &copy; ZrinCin, {new Date().getFullYear()}.
       </footer>
     </Container>
   );
